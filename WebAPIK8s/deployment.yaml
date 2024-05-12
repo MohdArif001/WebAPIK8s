@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-app-deployment
+  labels:
+    app: customer-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: customer-app
+  template:
+    metadata:
+      labels:
+        app: customer-app
+    spec:
+      containers:
+      - name: customer-app
+        image: arif/web-api
+        ports:
+        - containerPort: 80
+
